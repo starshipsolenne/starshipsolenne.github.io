@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#alert-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#alert-symbol {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.bar {
+    position: absolute;
+    background-color: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.vertical {
+    width: 60px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.vertical.top { top: -100%; }
+.vertical.bottom { bottom: -100%; }
+
+.horizontal {
+    height: 60px;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.horizontal.left { left: -100%; }
+.horizontal.right { right: -100%; }
+
+#alert-text, #alert-condition {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+}
+
+#alert-text {
+    top: 50%;
+    font-size: 32px;
+    transform: translateY(-120%);
+}
+
+#alert-condition {
+    top: 50%;
+    font-size: 18px;
+    transform: translateY(20%);
+}
+
+/* Alert States */
+
+body.redalert .bar, body.redalert #alert-text, body.redalert #alert-condition {
+    color: #FF1700;
+    background-color: #FF1700;
+    animation: pulseRed 1s infinite alternate;
+}
+
+body.yellowalert .bar, body.yellowalert #alert-text, body.yellowalert #alert-condition {
+    color: #FFCC00;
+    background-color: #FFCC00;
+    animation: pulseYellow 1.5s infinite alternate;
+}
+
+body.allclear .bar, body.allclear #alert-text, body.allclear #alert-condition {
+    color: #33FF33;
+    background-color: #33FF33;
+    animation: none;
+}
+
+/* Animations */
+
+@keyframes pulseRed {
+    from {opacity: 0.3;}
+    to {opacity: 1;}
+}
+
+@keyframes pulseYellow {
+    from {opacity: 0.3;}
+    to {opacity: 1;}
+}
